@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 插值 -->
+        <!-- 文本 -->
+        <span>Message: {{ msg }}</span>
+        <span v-once>这个将不会改变: {{ msg }}</span> <!-- 一次性地插值-->
+
+        <!-- HTML -->
+        <p>Using mustaches: {{ rawHtml }}</p>
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+
+
+        <!-- HTML属性 -->
+        <div v-bind:id="dynamicId"></div>
+        <button v-bind:disabled="isButtonDisabled">Button</button><br>
+
+        <!-- JavaScript 表达式 ，只能包含单个表达式-->
+        <div id="js"> 
+            {{ 1 + 1 }}
+            <!-- {{ number + 1 }} -->
+            <!-- {{ ok ? 'YES' : 'NO' }} -->
+            <!-- {{ message.split('').reverse().join('') }} -->
+            <!-- <div v-bind:id="'list-' + id"></div> -->
+        </div>
+
+
+
+
+
+
+
+
+
+    <!-- 指令 -->
+    <!-- 指令的职责是，当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。 -->
+        <!-- 参数 -->
+            <!-- 更新 HTML attribute -->
+        <a v-bind:href="url">...</a> 
+            <!-- 监听 DOM 事件 -->
+        <a v-on:click="doSomething">...</a>
+        
+        <!-- 动态参数 -->
+        <!-- 动态参数预期会求出一个字符串，任何其它非字符串类型的值都将会触发一个警告。 -->
+        <a v-bind:[attributeName]="url"> ... </a>
+        <a v-on:[eventName]="doSomething"> ... </a>
+        <!-- 避免使用大写字符来命名键名，因为浏览器会把 attribute 名全部强制转为小写： -->
+        <a v-bind:[someAttr]="value"> ... </a>
+
+        <!-- 修饰符  -->
+        <form v-on:submit.prevent="onSubmit">...</form>
+
+
+
+    
+    <!-- 缩写 -->
+        <!-- v-bind 缩写 -->
+        <a :href="url">...</a>
+        <a :[key]="url"> ... </a>
+        <!-- v-on 缩写 -->
+        <a @click="doSomething">...</a>
+        <a @[event]="doSomething"> ... </a>
+<a :[key]="url"> ... </a>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="03_模板语法.js"> </script>
+</body>
+
+</html>

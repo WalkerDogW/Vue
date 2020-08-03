@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- v-if 指令用于条件性地渲染一块内容 -->
+    <div id="v1">
+        <h1 v-if="awesome">Vue is awesome!</h1>
+    </div>
+
+    <div id="v2">
+        <h1 v-if="awesome">Vue is awesome!</h1>
+        <h1 v-else>Oh no 😢</h1>
+    </div>
+    <!-- 切换多个元素 -->
+    <div id="v3">
+        <template v-if="ok">
+            <h1>Title</h1>
+            <p>Paragraph 1</p>
+            <p>Paragraph 2</p>
+        </template>
+    </div>
+    <!-- v-else -->
+    <div id="v4">
+        <div v-if="Math.random() > 0.5">
+            Now you see me
+        </div>
+        <div v-else>
+            Now you don't
+        </div>
+    </div>
+    <!-- v-else-if -->
+    <div id="v5">
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+    </div>
+
+
+    <!-- 用 key 管理可复用的元素 -->
+    <div id="v6">
+        <!-- 切换 loginType 将不会清除用户已经输入的内容。因为两个模板使用了相同的元素，<input> 不会被替换掉——仅仅是替换了它的 placeholder。 -->
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address">
+        </template>
+    </div>
+    <div id="v7">
+        <!-- 添加一个具有唯一值的 key attribute 后Vue 不再复用 -->
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input placeholder="Enter your username" key="username-input">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input placeholder="Enter your email address" key="email-input">
+        </template>
+    </div>
+
+
+
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="06_条件渲染.js"> </script>
+</body>
+
+</html>

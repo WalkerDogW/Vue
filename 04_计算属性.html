@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 计算属性 -->
+    <!-- 与方法的区别：计算属性是基于它们的响应式依赖进行缓存的，而每当触发重新渲染时调用方法将总会再次执行函数。 -->
+    <div id="example">
+        <p>Original message: "{{ message }}"</p>
+        <p>Computed reversed message: "{{ reversedMessage }}"</p>
+    </div>
+
+
+    <!-- 与侦听属性的对比 -->
+    <div id="demo">{{ fullName }}</div>
+    <div id="demo2">{{ fullName }}</div>
+
+    <!-- 计算属性默认只有Setter -->
+    <div id="demo3">{{ fullName }}</div>
+
+
+    <!-- 侦听器 -->
+    <!-- 当需要在数据变化时执行异步或开销较大的操作时更适合侦听器 -->
+    <div id="watch-example">
+        <p>
+            Ask a yes/no question:
+            <input v-model="question">
+        </p>
+        <p>{{ answer }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="04_计算属性.js"> </script>
+</body>
+
+</html>

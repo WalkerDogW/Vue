@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 绑定 HTML Class -->
+        <!-- 动态地切换 class -->
+    <div id="example" v-bind:class="{ active: isActive ,hidden:hidden }">222</div>
+    <div id="example" class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">333</div>
+        <!-- 绑定的数据对象不必内联定义在模板里 -->
+    <div id="example2" v-bind:class="classObject">111</div>
+        <!-- 绑定计算属性 -->
+    <div id="example3" v-bind:class="classObject">111</div>
+        <!-- 绑定数组 -->
+    <div id="example4" v-bind:class="[activeClass, errorClass]"></div>
+        <!-- 绑定组件 -->
+            <!-- 当在一个自定义组件上使用 class property 时，这些 class 将被添加到该组件的根元素上面。这个元素上已经存在的 class 不会被覆盖。 -->
+    <div id="example5">
+        <my-component class="baz boo"></my-component>
+        <my-component v-bind:class="{ active: isActive }"></my-component>
+    </div>
+
+
+
+    <!-- 绑定内联样式 -->
+    <div id="example6" v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">666</div>
+        <!-- 直接绑定到一个样式对象通常更好，这会让模板更清晰 -->
+    <div id="example7" v-bind:style="styleObject">777</div>
+    <div v-bind:style="[baseStyles, overridingStyles]"></div>
+        <!-- 数组语法 -->
+        <div v-bind:style="[baseStyles, overridingStyles]"></div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="05_绑定.js"> </script>
+</body>
+
+</html>

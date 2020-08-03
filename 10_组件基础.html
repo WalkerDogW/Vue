@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 组件是可复用的 Vue 实例 -->
+    <div id="components-demo">
+        <button-counter></button-counter>
+    </div>
+
+    <!-- 可以将组件进行任意次数的复用： -->
+    <div id="components-demo">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+    </div>
+
+
+
+
+    <!-- 一个 prop 被注册之后，可以把数据作为一个自定义 attribute 传递进来 -->
+    <div id="blog-post-demo">
+        <blog-post title="My journey with Vue"></blog-post>
+        <blog-post title="Blogging with Vue"></blog-post>
+        <blog-post title="Why Vue is so fun"></blog-post>
+    </div>
+
+    <!-- 可以使用 v-bind 来动态传递 prop -->
+    <div id="blog-post-demo2">
+        <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post>
+    </div>
+
+    <!-- 接受一个单独的 post prop： -->
+    <div id="blog-post-demo3">
+        <blog-post-b v-for="post in posts" v-bind:key="post.id" v-bind:post="post"></blog-post-b>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="10_组件基础.js"> </script>
+</body>
+
+</html>
