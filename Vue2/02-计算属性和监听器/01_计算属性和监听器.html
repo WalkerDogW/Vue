@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+        <ul>
+            <li>《西游记》----价格:{{xyjPrice}} , 数量:<input type="number" v-model="xyjNum"></li>
+            <li>《水浒传》----价格:{{shzPrice}} , 数量:<input type="number" v-model="shzNum"></li>
+            <li>总价:{{amount}}</li>
+            {{msg}}
+        </ul>
+
+    </div>
+
+    
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        let app = new Vue({
+            el:"#app",
+            data:{
+                xyjPrice:200,
+                shzPrice:300,
+                xyjNum:0,
+                shzNum:0,
+                computed:0,
+                msg:""
+            },
+            // 某些结果是基于之前的数据事实计算出来的，可以用计算属性来完成
+            computed: {
+                amount(){
+                    return this.xyjPrice*this.xyjNum + this.shzPrice*this.shzNum
+                }
+            },
+            //watch可以让我们监控一个值的变化，从而做出相应的反应
+            watch: {
+                xyjNum(newVal,oldVal){
+                    if(newVal >= 3){
+                        this.msg="库存超出限制，最大库存数为：3";
+                        this.xyjNum=3;
+                    }else{
+                        this.msg="";
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

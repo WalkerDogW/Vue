@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <ul>
+            <li v-for="(user,index) in users" v-bind:key="user.id">
+                {{index}}:
+                {{user.name}}-->{{user.gender==1?"男":"女"}}-->{{user.age}}===>{{user.gender | genderFilter}}<br>
+                {{user.gender | gFilter}}
+            </li>
+        </ul>
+
+    </div>
+
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        //全局过滤器
+        Vue.filter("gFilter", function (val){
+            if (val == 1) {
+                return "男!";
+            } else {
+                return "女!";
+            }
+        });
+
+        let app = new Vue({
+            el: "#app",
+            data: {
+                users: [
+                    { id: "00001", name: "柳岩", gender: "0", age: 21 },
+                    { id: "00002", name: "张三", gender: "1", age: 18 }]
+            },
+            // 局部过滤器常用来处理文本格式化的操作，过滤器可以用在两个地方：插值表达式和v-bind表达式
+            filters: {
+                genderFilter(val) {
+                    if (val == 1) {
+                        return "男";
+                    } else {
+                        return "女";
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

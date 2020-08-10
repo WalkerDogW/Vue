@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <span id="num">{{num}}</span>
+        <button v-on:click="num++">赞！</button>
+
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        vm = new Vue({
+            el:"#app",
+            data:{
+                name:"张三",
+                num:100
+            },
+            methods:{
+                show(){
+                    return this.name;
+                },
+                add(){
+                    this.num++;
+                }
+            },
+            beforeCreate() {
+                console.log("===============beforeCreate===============");
+                console.log("数据模型："+this.name,this.num);
+                console.log("方法："+this.show());
+                console.log("html模板加载："+document.getElementById("num"));
+                console.log("html模板渲染："+document.getElementById("num").innerText);
+            },
+            created() {
+                console.log("===============created===============");
+                console.log("数据模型："+this.name,this.num);
+                console.log("方法："+this.show());
+                console.log("html模板："+document.getElementById("num"));
+                console.log("html模板渲染："+document.getElementById("num").innerText);
+            },
+            beforeMount() {
+                console.log("===============beforeMount===============");
+                console.log("数据模型："+this.name,this.num);
+                console.log("方法："+this.show());
+                console.log("html模板："+document.getElementById("num"));
+                console.log("html模板渲染："+document.getElementById("num").innerText);
+            },
+            mounted() {
+                console.log("===============mounted===============");
+                console.log("数据模型："+this.name,this.num);
+                console.log("方法："+this.show());
+                console.log("html模板："+document.getElementById("num"));
+                console.log("html模板渲染："+document.getElementById("num").innerText);
+            },
+            beforeUpdate() {
+                console.log("===============beforeMount===============");
+                console.log("数据模型："+this.name,this.num);
+                console.log("方法："+this.show());
+                console.log("html模板："+document.getElementById("num"));
+                console.log("html模板渲染："+document.getElementById("num").innerText);
+            },
+            updated() {
+                console.log("===============updated===============");
+                console.log("数据模型："+this.name,this.num);
+                console.log("方法："+this.show());
+                console.log("html模板："+document.getElementById("num"));
+                console.log("html模板渲染："+document.getElementById("num").innerText);
+            },
+        })
+
+    </script>
+</body>
+</html>

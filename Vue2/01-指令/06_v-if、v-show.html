@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+
+        <button v-on:click="show = !show">点我呀</button>
+        <!-- show只是隐藏，if直接不生成标签 -->
+        <h1 v-if="show">if=看到我....</h1>
+        <h1 v-show="show">show=看到我...</h1>
+
+
+
+        <h1 v-if="random>=0.75">看到我....&gt;=0.75</h1>
+        <h1 v-else-if="random>=0.5">看到我....&gt;=0.5</h1>
+        <h1 v-else="random>=0">看到我....&gt;=0</h1>
+    </div>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        let app = new Vue({
+            el:"#app",
+            data:{
+                show:true,
+                random:1
+            }
+        })
+    </script>
+
+</body>
+
+</html>
